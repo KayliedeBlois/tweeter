@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  padding: 1.5em;
+  width: 90%;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.flex {
+  display: flex;
+}
+
+.tweet-counter {
+  font-family: 'Bungee', cursive;
+  justify-content: space-between;
+  padding-top: 0.5em;
+
+}
+
+
+.btn-primary {
+  color: #FFFFFF;
+  background-color: #4056A1;
+  font-family: 'Bungee', cursive;
+}
+
+#tweet-text {
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid black;
+}
+
+.insert-tweet {
+  flex-direction: column;
+}
