@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -46,7 +47,7 @@
 
 
     <!-- Header -->
-    <header>
+    <header class="page-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -67,6 +68,32 @@
           </div>
         </form>
       </section>
+
+      <section class="tweets flex">
+        <header class="tweets-header">
+          <div class="tweets-header-topright">
+            <img id="profilePicture" src="/images/profile-hex.png">
+            <label>Name</label>
+          </div>
+          <label id="tweeterHandle">@TweeterHandle</label>
+        </header>
+
+        <article class="saved-tweet">This is my Tweet! I am so clever!</article>
+
+        <footer class="tweets-footer">
+          <time class="tweets-time">10 days ago</time>
+          <div class="icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          <div>
+
+        </footer>
+
+      </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
   </body>
+  
 </html>

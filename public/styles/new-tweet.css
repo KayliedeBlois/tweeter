@@ -1,8 +1,8 @@
 .container {
   display: flex;
-  padding: 1.5em;
-  width: 90%;
+  padding: 5%;
   font-family: 'Source Sans Pro', sans-serif;
+  justify-content: center;
 }
 
 .flex {
@@ -15,7 +15,10 @@
   padding-top: 0.5em;
 
 }
-
+.new-tweet {
+  width: 100%;
+  padding-bottom: 30px;
+}
 
 .btn-primary {
   color: #FFFFFF;
@@ -31,4 +34,8 @@
 
 .insert-tweet {
   flex-direction: column;
+}
+
+.negative {
+  color: red;
 }
