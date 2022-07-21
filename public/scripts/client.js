@@ -48,7 +48,18 @@ loadTweets();
 // Event Listener for Submit
 $(".insert-tweet").submit(function(event) {
   event.preventDefault();
-  console.log( $( this ).serialize() );
+
+let string = $(this).serialize()
+let splitResult = string.split('=');
+let expectedValue = splitResult[1];
+
+
+if (expectedValue === "" || expectedValue === null) {
+  alert("Your tweet is empty!");
+} else if (expectedValue.length > 140) {
+  alert("Your tweet is too long. Shorten it to 140 characters");
+}
+
 
   $.ajax({
     url:'/tweets',
