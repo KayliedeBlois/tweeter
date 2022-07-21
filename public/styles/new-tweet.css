@@ -39,3 +39,7 @@
 .negative {
   color: red;
 }
+
+.tweet-container {
+  width: 100%;
+}

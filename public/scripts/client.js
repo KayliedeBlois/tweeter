@@ -4,6 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+//const { request } = require("express");
+
+$( document ).ready(function() {
+  loadTweets();
+});
+
 createTweetElement = function(tweetData) {
 const markup = `
   <section class="tweets flex" id="tweets-container">
@@ -33,7 +39,7 @@ return markup;
 renderTweets = function(data) {
   for (let object of data) {
   const $tweet = createTweetElement(object);
-  $('.container').append($tweet);
+  $('.tweet-container').prepend($tweet);
   }
 };
 
@@ -43,7 +49,13 @@ loadTweets = function() {
     renderTweets(data);
   });
 };
-loadTweets();
+
+addMostRecentTweet = function() {
+  $.get( "/tweets", function( data ) {
+    const markup = createTweetElement(data[data.length - 1]);
+    $('.tweet-container').prepend(markup);
+  });
+};
 
 // Event Listener for Submit
 $(".insert-tweet").submit(function(event) {
@@ -58,14 +70,25 @@ if (expectedValue === "" || expectedValue === null) {
   alert("Your tweet is empty!");
 } else if (expectedValue.length > 140) {
   alert("Your tweet is too long. Shorten it to 140 characters");
-}
+} else {
+
+  // $.ajax({
+  //   url:'/tweets',
+  //   type:'Post',
+  //   data:$(this).serialize(),
+  // });
 
 
-  $.ajax({
-    url:'/tweets',
-    type:'Post',
-    data:$(this).serialize(),
-  
+
+const requestData = $(this).serialize();
+
+$.post( "/tweets", requestData)
+  .done(function( data ) {
+    console.log(data);
+    console.log('here'); //See if you can get a return from this request and use createTweetElement
+    addMostRecentTweet();
   });
+}
+  
 });
 
