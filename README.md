@@ -3,9 +3,10 @@
 Tweeter is a simple, single-page Twitter clone.
 
 ## Final Product 
-!["Screenshot of Desktop Style"] (https://github.com/KayliedeBlois/tweeter/blob/master/public/styles/home-page-desktop.png?raw=true)
-!["Screenshot of Tablet Style"] (https://github.com/KayliedeBlois/tweeter/blob/master/public/styles/home-page-tablet.png?raw=true)
-!["Screenshot of Updated Tweets"] (https://github.com/KayliedeBlois/tweeter/blob/master/public/styles/updated-tweet.png?raw=true)
+
+!["Screenshot of Desktop Style"](https://github.com/KayliedeBlois/tweeter/blob/master/public/styles/home-page-desktop.png?raw=true)
+!["Screenshot of Tablet Style"](https://github.com/KayliedeBlois/tweeter/blob/master/public/styles/home-page-tablet.png?raw=true)
+!["Screenshot of Updated Tweets"](https://github.com/KayliedeBlois/tweeter/blob/master/public/styles/updated-tweet.png?raw=true)
 
 ## Getting Started
 
