@@ -10,6 +10,7 @@ $( document ).ready(function() {
   loadTweets();
 });
 
+// function to avoid unstable text from being submitted
 const escape = function (str) {
   let div = document.createElement("div");
   div.appendChild(document.createTextNode(str));
@@ -18,6 +19,7 @@ const escape = function (str) {
 
 $(".error").hide();
 
+// Creates tweet containers with proper formatting given data
 createTweetElement = function(tweetData) {
 const markup = `
   <section class="tweets flex" id="tweets-container">
@@ -59,6 +61,7 @@ loadTweets = function() {
   });
 };
 
+// Adds most recent tweet to top of page
 addMostRecentTweet = function() {
   $.get( "/tweets", function( data ) {
     const markup = createTweetElement(data[data.length - 1]);
@@ -83,20 +86,13 @@ if (expectedValue === "" || expectedValue === null) {
   $("#error-2").show(250);
 } else {
 
-  // $.ajax({
-  //   url:'/tweets',
-  //   type:'Post',
-  //   data:$(this).serialize(),
-  // });
-
 
 
 const requestData = $(this).serialize();
-
+// Posts most recent tweet 
 $.post( "/tweets", requestData)
   .done(function( data ) {
     console.log(data);
-    console.log('here'); //See if you can get a return from this request and use createTweetElement
     addMostRecentTweet();
   });
 }

@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  // --- our code goes here ---
+ // Counts characters live while typing
 
   var maxlength = 140;
     $("#tweet-text").keyup(function(){
