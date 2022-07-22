@@ -10,6 +10,12 @@ $( document ).ready(function() {
   loadTweets();
 });
 
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 $(".error").hide();
 
 createTweetElement = function(tweetData) {
@@ -23,7 +29,7 @@ const markup = `
       <label id="tweeterHandle">${tweetData.user.handle}</label>
     </header>
 
-    <article class="saved-tweet">${tweetData.content.text}</article>
+    <article class="saved-tweet">${escape(tweetData.content.text)}</article>
 
     <footer class="tweets-footer">
       <time class="tweets-time">${timeago.format(tweetData.created_at)}</time>
@@ -34,6 +40,7 @@ const markup = `
       </div>
     </footer>
 `;
+
 return markup;
 };
 
@@ -56,6 +63,7 @@ addMostRecentTweet = function() {
   $.get( "/tweets", function( data ) {
     const markup = createTweetElement(data[data.length - 1]);
     $('.tweet-container').prepend(markup);
+    console.log(markup);
   });
 };
 

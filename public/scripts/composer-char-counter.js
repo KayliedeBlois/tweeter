@@ -6,7 +6,7 @@ $(document).ready(function() {
     $("#tweet-text").keyup(function(){
     var currentlength = $(this).val().length;
     var remaining = maxlength-currentlength;
-    $(".counter").html(remaining);
+    $(".counter").text(remaining);
 
     if (currentlength > maxlength) {
       $(".counter").addClass( "negative" );
