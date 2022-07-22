@@ -10,6 +10,8 @@ $( document ).ready(function() {
   loadTweets();
 });
 
+$(".error").hide();
+
 createTweetElement = function(tweetData) {
 const markup = `
   <section class="tweets flex" id="tweets-container">
@@ -59,17 +61,18 @@ addMostRecentTweet = function() {
 
 // Event Listener for Submit
 $(".insert-tweet").submit(function(event) {
+  $(".error").hide(); // hide errors when resubmitting a new tweet
   event.preventDefault();
 
 let string = $(this).serialize()
 let splitResult = string.split('=');
 let expectedValue = splitResult[1];
 
-
+// JQuery error message shows
 if (expectedValue === "" || expectedValue === null) {
-  alert("Your tweet is empty!");
+  $("#error-1").show(250);
 } else if (expectedValue.length > 140) {
-  alert("Your tweet is too long. Shorten it to 140 characters");
+  $("#error-2").show(250);
 } else {
 
   // $.ajax({
