@@ -66,7 +66,6 @@ addMostRecentTweet = function() {
   $.get( "/tweets", function( data ) {
     const markup = createTweetElement(data[data.length - 1]);
     $('.tweet-container').prepend(markup);
-    console.log(markup);
   });
 };
 
@@ -75,10 +74,7 @@ $(".insert-tweet").submit(function(event) {
   $(".error").hide(); // hide errors when resubmitting a new tweet
   event.preventDefault();
 
-console.log($("#tweet-text").val().length);
-
-// let string = $(this).serialize().replace(/\%20/g, " ");
-// let splitResult = string.split('=');
+// Text input from user
 let expectedValue = $("#tweet-text").val();
 
 
@@ -95,10 +91,10 @@ const requestData = $(this).serialize();
 // Posts most recent tweet 
 $.post( "/tweets", requestData)
   .done(function( data ) {
-    console.log(data);
     addMostRecentTweet();
   });
 
+// Reset after submit is successful
 $("#tweet-text").val("");
 $(".counter").text(140);
 }
