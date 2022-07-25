@@ -75,14 +75,17 @@ $(".insert-tweet").submit(function(event) {
   $(".error").hide(); // hide errors when resubmitting a new tweet
   event.preventDefault();
 
-let string = $(this).serialize()
-let splitResult = string.split('=');
-let expectedValue = splitResult[1];
+console.log($("#tweet-text").val().length);
+
+// let string = $(this).serialize().replace(/\%20/g, " ");
+// let splitResult = string.split('=');
+let expectedValue = $("#tweet-text").val();
+
 
 // JQuery error message shows
 if (expectedValue === "" || expectedValue === null) {
   $("#error-1").show(250);
-} else if (expectedValue.length > 140) {
+} else if (expectedValue.length > 140 ) {
   $("#error-2").show(250);
 } else {
 
@@ -95,7 +98,9 @@ $.post( "/tweets", requestData)
     console.log(data);
     addMostRecentTweet();
   });
+
+$("#tweet-text").val("");
+$(".counter").text(140);
 }
-  
 });
 

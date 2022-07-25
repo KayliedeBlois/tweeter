@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   var maxlength = 140;
     $("#tweet-text").keyup(function(){
-    var currentlength = $(this).val().length;
+    var currentlength = $("#tweet-text").val().length;
     var remaining = maxlength-currentlength;
     $(".counter").text(remaining);
 
@@ -15,4 +15,5 @@ $(document).ready(function() {
     }
   });
 });
+
 
